@@ -25,7 +25,7 @@
 14. Resistores
 
 ## Objetivo
-1. Leitura da rotação por minuto (RPM) de um motor 12v utilizando um sensor de efeito hall
+- Leitura da rotação por minuto (RPM) de um motor 12v utilizando um sensor de efeito hall
 
 ## Funcionamento do programa descrito
 
@@ -61,6 +61,12 @@ Com um fluxo de corrente em um objeto sujeito a um campo magnético formando 90�
 - Repitibilidade
 - Estabilidade
 
+## Código do Programa
+...
+
+tester
+includ
+...
 
 
 
