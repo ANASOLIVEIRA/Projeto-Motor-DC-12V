@@ -36,7 +36,6 @@ Ao pressionar o botão 2, o buzzer emite um som e o led vermelho é acionado, de
 Ao eixo do motor estará fixado um imã, este imã irá ficar rotacionando, e a cada ciclo completo o imã fica posicionado a frente do sensor de efeito Hall. O sensor detecta o ciclo realizado pelo imã e envia a leitura do RPM realizado. 
 ![image](https://user-images.githubusercontent.com/61547619/124055793-8b75d380-d9f2-11eb-83db-faa4a7390e9e.png)
 
-
 ## Detalhamento técnico
 ### 1. Sensor Efeito Hall
 O sensor de efeito Hall é um sensor de campo magnético. Podenso ser utilizado para detectar a rotação de um objeto, posicionamento do objeto ou detectar movimento.
