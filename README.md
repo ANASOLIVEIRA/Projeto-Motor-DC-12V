@@ -1,4 +1,4 @@
-**Projeto-Motor-DC-12V**
+# Projeto-Motor-DC-12V
 
 # Projeto Controlador de Velocidade para Motor CC de 12V
 ## Requisitos do Projeto:
@@ -38,7 +38,7 @@ Ao eixo do motor estará fixado um imã, este imã irá ficar rotacionando, e a 
 
 
 ## Detalhamento técnico
-1. Sensor Efeito Hall
+### 1. Sensor Efeito Hall
 O sensor de efeito Hall é um sensor de campo magnético. Podenso ser utilizado para detectar a rotação de um objeto, posicionamento do objeto ou detectar movimento.
 O efeito hall é resultado pela força de Lorentz no movimento de elétrons a um campo magnético, onde se tem uma tensão de hall proporcional ao campo magnético aplicado. 
 
@@ -54,7 +54,7 @@ B: campo magnético [T]
 senO: ângulo entre direção da velocidade e a direção do campo magnético
 
 Com um fluxo de corrente em um objeto sujeito a um campo magnético formando 90°, o ângulo do fluxo da corrente é alterado (sofrendo o efeito do campo magnético), que se é conhecido como ângulo Hall. Sendo assim as linhas equipotenciais se inclinam, causando uma tensão de Hall ao longo do objeto.
-#### 1.1.1 Vantagens
+### 1.1.1 Vantagens
 - Alta sensibilidade
 - Erros despreziveis de linearidade
 - Erros desprezíveis em relação a vibração
