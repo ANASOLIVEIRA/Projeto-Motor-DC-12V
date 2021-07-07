@@ -51,12 +51,11 @@ Fb = q*V*B*senO
 
 Onde 
 
-Fb: força magnética [N]
-q: módulo carga elétrica [C]
-v: velocidade da carga [m/s]
-B: campo magnético [T]
-senO: ângulo entre direção da velocidade e a direção do campo magnético
-
+- Fb: força magnética [N]
+- q: módulo carga elétrica [C]
+- v: velocidade da carga [m/s]
+- B: campo magnético [T]
+- senO: ângulo entre direção da velocidade e a direção do campo magnético
 
 Com um fluxo de corrente em um objeto sujeito a um campo magnético formando 90°, o ângulo do fluxo da corrente é alterado (sofrendo o efeito do campo magnético), que se é conhecido como ângulo Hall. Sendo assim as linhas equipotenciais se inclinam, causando uma tensão de Hall ao longo do objeto.
 ### 1.1.1 Vantagens
