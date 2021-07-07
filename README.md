@@ -11,18 +11,20 @@
 ## Componentes utilizados
 1. Placa Arduíno Mega
 2. Display LDC 16x2
-3. Módulo I2C
-4. Sensor de Efeito Hall
-5. Led Azul
-6. Led Verde
-7. Led Vermelho
-8. Botão Push 1
-9. Botão Push 2
-10. Interruptor ON/OFF
-11. Sensor Ultrassônico
-12. Buzzer
-13. Bateria
-14. Resistores
+3. Shield L293D
+4. Módulo I2C
+5. Sensor de Efeito Hall - Módulo 3144
+6. Led Azul
+7. Led Verde
+8. Led Vermelho
+9. Botão Push 1 - Sentido Horário
+10. Botão Push 2 - Sentido Anti-Horário
+11. Botão Push 3 - Velocidade - 3 velocidades
+12. Interruptor ON/OFF
+13. Sensor Ultrassônico HC-SR04
+14. Buzzer
+15. Bateria
+16. Resistores
 
 ## Objetivo
 - Leitura da rotação por minuto (RPM) de um motor 12v utilizando um sensor de efeito hall
@@ -44,13 +46,17 @@ O efeito hall é resultado pela força de Lorentz no movimento de elétrons a um
 ### 1.1. Teoria de Efeito Hall
 
 O fluxo de corrente em um material sem o efeito de uma campo magnético, tem suas linhas equipotenciais que se cruzam formando um ângulo de 90°.
+
 Fb = q*V*B*senO
+
 Onde 
+
 Fb: força magnética [N]
 q: módulo carga elétrica [C]
 v: velocidade da carga [m/s]
 B: campo magnético [T]
 senO: ângulo entre direção da velocidade e a direção do campo magnético
+
 
 Com um fluxo de corrente em um objeto sujeito a um campo magnético formando 90°, o ângulo do fluxo da corrente é alterado (sofrendo o efeito do campo magnético), que se é conhecido como ângulo Hall. Sendo assim as linhas equipotenciais se inclinam, causando uma tensão de Hall ao longo do objeto.
 ### 1.1.1 Vantagens
