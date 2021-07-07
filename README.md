@@ -3,7 +3,7 @@
 # Projeto Controlador de Velocidade para Motor CC de 12V
 ## Requisitos do Projeto:
 - Motor CC de 12V
-- Sistema que detecte a velocidade em que o motor está girando, projeto precisa ter 2 velocidades distintas no programa
+- Sistema que detecte a velocidade em que o motor está girando, projeto precisa ter 2 velocidades distintas no programa, critério
 - Deve-se utilizar um monstrador LCD para indicar a velocidade em RPM e o sentido de rotação
 - Deve-se utilizar um botão que acionado, fará o motor parar e girar no sentido contrário, e tenha um alarme sonoro que indique essa mudança
 - Deve-se ter um sistema de proteção para que não tenha acesso ao motor enquanto ele estiver funcionando
@@ -11,7 +11,7 @@
 ## Componentes utilizados
 1. Placa Arduíno Mega
 2. Display LDC 16x2
-3. Shield L293D
+3. Shield L293D - Ponte H
 4. Módulo I2C
 5. Sensor de Efeito Hall - Módulo 3144
 6. Led Azul
@@ -19,7 +19,7 @@
 8. Led Vermelho
 9. Botão Push 1 - Sentido Horário
 10. Botão Push 2 - Sentido Anti-Horário
-11. Botão Push 3 - Velocidade - 3 velocidades
+11. Botão Push 3 - Velocidade - 3 velocidades (opcional)
 12. Interruptor ON/OFF
 13. Sensor Ultrassônico HC-SR04
 14. Buzzer
@@ -28,6 +28,7 @@
 
 ## Objetivo
 - Leitura da rotação por minuto (RPM) de um motor 12v utilizando um sensor de efeito hall
+- Sensor ultrassônico HC-SR04 para segurança, quando abre a caixa do projeto, tendo assim acesso ao motor, quando abre a tampa o sensor para o motor
 
 ## Funcionamento do programa descrito
 
@@ -81,15 +82,6 @@ void loop() {
 ...
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+Referências
+Módulo 3144
+https://www.youtube.com/watch?v=pIflB4FQpNE&ab_channel=Clockatronic
