@@ -44,9 +44,11 @@ Ao eixo do motor estará fixado um imã, este imã irá ficar rotacionando, e a 
 
 ![image](https://user-images.githubusercontent.com/61547619/124055793-8b75d380-d9f2-11eb-83db-faa4a7390e9e.png)
 
-###1. Calibração
+### Segurança
+O motor fica isolado em uma caixa, e considerando como um item que pode vir a causar acidentes foi implementado um sistema de segurança, quando a tampa da caixa é aberta o sensor ultrassônico realiza uma leitura fora do parâmetro, emitindo uma mensagem de alerta no display e para o motor.
 
-
+### 1. Calibração
+Para realizar a calibração foi utilizado a lógica de incrementar ou decrementar o valor lido para realar a compensação de leitura do sensor.
 
 ## Detalhamento técnico
 ### 1. Sensor Efeito Hall
