@@ -36,12 +36,17 @@
 
 ## Funcionamento do programa descrito
 
-Ao pressionar o botão 1, o buzzer emite um som e o led vermelho é acionado, depois de 1 segundo buzzer e led vermelho apagam, led azul acende e motor começa a rotacionar sentido horário com uma rotação baixa durante 10 segundos, e depois aumenta para a rotação máxima do motor.
+Ao pressionar o botão 1, o buzzer emite um som e o led vermelho é acionado, depois de 1 segundo buzzer e led vermelho apagam, led verde acende e motor começa a rotacionar sentido horário com uma rotação baixa. Ao pressionar o botão de velocidade a rotação irá aumentar para uma rotação média, e ao pressionar o botão novamente a rotação muda para a rotação máxima.
 
-Ao pressionar o botão 2, o buzzer emite um som e o led vermelho é acionado, depois de 1 segundo, buzzer e led vermelho apagam, led verde acende e motor começa a rotacionar sentido anti-horário com uma rotação baixa por 10 segundos, e depois aumenta para a rotação máxima do motor.
+Ao pressionar o botão 2, o buzzer emite um som e o led vermelho é acionado, depois de 1 segundo, buzzer e led vermelho apagam, led azul acende e motor começa a rotacionar sentido anti-horário com uma rotação baixa. Ao pressionar o botão de velocidade a rotação irá aumentar para uma rotação média, e ao pressionar o botão novamente a rotação muda para a rotação máxima.
 
 Ao eixo do motor estará fixado um imã, este imã irá ficar rotacionando, e a cada ciclo completo o imã fica posicionado a frente do sensor de efeito Hall. O sensor detecta o ciclo realizado pelo imã e envia a leitura do RPM realizado. 
+
 ![image](https://user-images.githubusercontent.com/61547619/124055793-8b75d380-d9f2-11eb-83db-faa4a7390e9e.png)
+
+###1. Calibração
+
+
 
 ## Detalhamento técnico
 ### 1. Sensor Efeito Hall
