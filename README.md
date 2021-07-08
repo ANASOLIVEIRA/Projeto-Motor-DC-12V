@@ -72,7 +72,7 @@ Com um fluxo de corrente em um objeto sujeito a um campo magnético formando 90�
 
 ## Código do Programa
 
-'''
+```
 
 {
 void setup() {
@@ -86,7 +86,7 @@ void loop() {
 }
 }
 
-'''
+```
 
 
 Referências
