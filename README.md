@@ -79,16 +79,216 @@ Com um fluxo de corrente em um objeto sujeito a um campo magnético formando 90�
 
 ```C++
 
+#include <Ultrasonic.h>
+#include <LiquidCrystal_I2C.h>
+#define DISPLAY_W 16
+#include <AFMotor.h>
+
+#define pino_trigger 40
+#define pino_echo 42
+AF_DCMotor motor(1);
+
+LiquidCrystal_I2C lcd(0x27,DISPLAY_W,2);
+
+float revolutions=0;
+int rpm=0; // max value 32,767 16 bit
+long  startTime=0;
+long  elapsedTime=0;
+int i;//controle velocidade pulsos
+int velocidade=0;
+Ultrasonic ultrasonic(pino_trigger, pino_echo);
+float distancia;
+float result;
+void setup() 
 {
-void setup() {
-  // put your setup code here, to run once:
+  
+    //Sensor
+    pinMode(2, INPUT_PULLUP); //Sensor 3144
+    lcd.init();
+    lcd.backlight();
+    lcd.setCursor(0,0);
+    lcd.print("RPM: ");
+    lcd.setCursor(0,1);
+    lcd.print("Sentido: "); 
+    Serial.begin(9600);
+    //Motor
+    motor.setSpeed(0);//Set motor parado
 
+    pinMode(22, OUTPUT);//Led azul
+    pinMode(24, OUTPUT);//led verde
+    pinMode(26, OUTPUT);//led vermelho
+    pinMode(28, INPUT);//Botão sent horário
+    pinMode(30, INPUT);//Botão sent anti-horario
+    pinMode(34, INPUT);//Botão velocidade
+    pinMode(38, INPUT);//Botão calibraçao +
+    pinMode(36, INPUT);//Botão calibração -
+    pinMode(32, INPUT);//buzzer
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
 
+ 
+void loop() 
+{
+  float cmMsec, inMsec;
+  long microsec = ultrasonic.timing();
+  cmMsec = ultrasonic.convert(microsec, Ultrasonic :: CM);
+  inMsec = ultrasonic.convert(microsec, Ultrasonic :: IN);
+  motor.setSpeed(0);//Motor inicia parado
+  hcsr04(); // FAZ A CHAMADA DO MÉTODO "hcsr04
+    revolutions=0; rpm=0;
+    startTime=millis(); //startTime=millis();      
+    attachInterrupt(digitalPinToInterrupt(2),interruptFunction,RISING);
+    delay(1000);
+    detachInterrupt(2);                
+//now let's see how many counts we've had from the hall effect sensor and calc the RPM
+    elapsedTime=millis()-startTime;//elapsedTime=millis()-startTime;     //finds the time, should be very close to 1 sec
+
+    
+
+    if(revolutions>0)
+    {
+        rpm=(max(1, revolutions) * 6) / elapsedTime; //60000        //calculates rpm//rpm=(max(1, revolutions) * 60000) / elapsedTime;        //calculates rpm
+    }
+    lcd.setCursor(0,0);
+    String outMsg = String("RPM :") + rpm;
+    fillMessage2DisplayWidth(outMsg);
+    lcd.print(outMsg);
+    Serial.println(outMsg);
+
+    if(result > 0)
+    {
+      motor.setSpeed(0);
+      motor.run(RELEASE); //Desliga o motor
+      lcd.init();
+      lcd.backlight();
+      lcd.setCursor(4,0);
+      lcd.print("ATENCAO! ");
+      lcd.setCursor(2,1);
+      lcd.print("PORTA ABERTA");
+    }
+    //Calibração
+    if(revolutions>0)
+    {
+      int mais = 36;
+      int menos = 38;
+      int incrementa=0;
+      int decrementa=0;
+      decrementa = digitalRead(menos); //DECREMENTA
+      incrementa = digitalRead(mais); //INCREMENTA
+      if(decrementa == HIGH)
+      {
+        rpm=((max(1, revolutions) * 60000) / elapsedTime) - 100;
+        lcd.setCursor(0,0);
+        String outMsg = String("RPM :") + rpm;
+        fillMessage2DisplayWidth(outMsg);
+        lcd.print(outMsg);
+        Serial.println(outMsg);
+      }
+        if(incrementa == HIGH)
+      {
+        rpm=((max(1, revolutions) * 60000) / elapsedTime) + 100;
+        lcd.setCursor(0,0);
+        String outMsg = String("RPM :") + rpm;
+        fillMessage2DisplayWidth(outMsg);
+        lcd.print(outMsg);
+        Serial.println(outMsg);
+      }
+    }
 }
+void hcsr04()//Função Leitura De distância no operador
+{
+    digitalWrite(pino_trigger, LOW); 
+    delay(200); 
+    digitalWrite(pino_trigger, HIGH);
+    delay(100);
+    digitalWrite(pino_trigger, LOW);
+    long microsec = ultrasonic.timing();
+    distancia = ultrasonic.convert(microsec, Ultrasonic :: CM);
+    //result = (float)(String(distancia)); 
+    result = distancia;
+    delay(500); 
+ }
+void M1()
+{
+    //begin motor
+    if(28 == HIGH)//
+    {
+      digitalWrite(26,HIGH);//LIGA LED VERMELHO
+      digitalWrite(32,HIGH);//LIGA BUZZER
+      delay(1000);//Espera 1 segundo
+      digitalWrite(26,HIGH);//DESLIGA LED VERMELHO
+      digitalWrite(32,HIGH);//DESLIGA BUZZER
+      digitalWrite(24,HIGH);//LIGA LED VERDE
+      motor.run(RELEASE);//M1 parado
+      delay(500);
+      motor.setSpeed(116);//M1 na rotação mínima
+      motor.run(FORWARD);//Set rotação sentido horário
+    }
+    if(30 == HIGH)
+    {
+      digitalWrite(26,HIGH);//LIGA LED VERMELHO
+      digitalWrite(32,HIGH);//LIGA BUZZER
+      delay(1000);//Espera 1 segundo
+      digitalWrite(26,HIGH);//DESLIGA LED VERMELHO
+      digitalWrite(32,HIGH);//DESLIGA BUZZER
+      digitalWrite(22,HIGH);//LIGA LED AZUL
+      motor.run(RELEASE);//M1 parado
+      delay(500);
+      motor.setSpeed(116);//M1 na rotação mínima
+      motor.run(BACKWARD);//Set rotação sentido horário
+    }
+    if(34 == HIGH)
+    {
+      i++;
+      motor.run(RELEASE);//M1 parado
+      delay(500);
+      motor.setSpeed(190);//M1 na rotação média
+      motor.run(FORWARD);//Set rotação sentido horário
+
+      if(i == 2)
+      {
+        motor.setSpeed(0);
+        motor.run(RELEASE);//Motor stop
+        delay(500);
+        motor.setSpeed(255);//Motor rotação máxima
+        motor.run(FORWARD);//Set sentido anti-horario
+      }
+      }
+    if(34 == HIGH)
+    {
+      i++;
+      motor.run(RELEASE);//M1 parado
+      delay(500);
+      motor.setSpeed(190);//M1 na rotação média
+      motor.run(BACKWARD);//Set rotação sentido horário
+
+      if(i == 2)
+      {
+        motor.setSpeed(0);
+        motor.run(RELEASE);//Motor stop
+        delay(500);
+        motor.setSpeed(255);//Motor rotação máxima
+        motor.run(BACKWARD);//Set sentido anti-horario
+      }
+      }
+}
+void interruptFunction() //interrupt service routine
+{  
+    revolutions++;
+}
+
+void fillMessage2DisplayWidth(String & message)
+{
+    if(message.length()<DISPLAY_W+1)
+    {
+        while(message.length()<DISPLAY_W)
+    {
+        message+=" "; 
+    }
+    return;
+  }
+ //message is too wide for 1 line of the display, truncate it
+    message = message.substring(0, DISPLAY_W-1); 
 }
 
 ```
