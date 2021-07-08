@@ -12,19 +12,23 @@
 1. Placa Arduíno Mega
 2. Display LDC 16x2
 3. Shield L293D - Ponte H
-4. Módulo I2C
-5. Sensor de Efeito Hall - Módulo 3144
-6. Led Azul
-7. Led Verde
-8. Led Vermelho
-9. Botão Push 1 - Sentido Horário
-10. Botão Push 2 - Sentido Anti-Horário
-11. Botão Push 3 - Velocidade - 3 velocidades (opcional)
-12. Interruptor ON/OFF
-13. Sensor Ultrassônico HC-SR04
-14. Buzzer
-15. Bateria
-16. Resistores
+4. Motor DC 12V - C9045 60001 RD548311
+5. Fonte 12VDC (Motor)
+6. Módulo I2C
+7. Sensor de Efeito Hall - Módulo 3144
+8. Led Azul
+9. Led Verde
+10. Led Vermelho
+11. Botão Push 1 - Sentido Horário
+12. Botão Push 2 - Sentido Anti-Horário
+13. Botão Push 3 - Velocidade - 3 velocidades (opcional)
+14. Botão Push 4 - Incremento (Calibração)
+15. Botão Push 5 - Decremento (Calibração)
+16. Interruptor ON/OFF
+17. Sensor Ultrassônico HC-SR04
+18. Buzzer
+19. Bateria
+20. Resistores
 
 ## Objetivo
 - Leitura da rotação por minuto (RPM) de um motor 12v utilizando um sensor de efeito hall
@@ -67,7 +71,9 @@ Com um fluxo de corrente em um objeto sujeito a um campo magnético formando 90�
 - Estabilidade
 
 ## Código do Programa
-...
+
+'''
+
 {
 void setup() {
   // put your setup code here, to run once:
@@ -79,7 +85,8 @@ void loop() {
 
 }
 }
-...
+
+'''
 
 
 Referências
