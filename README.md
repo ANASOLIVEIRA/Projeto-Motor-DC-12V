@@ -1,6 +1,6 @@
-# Projeto-Motor-DC-12V
+# TTC2
 
-# Projeto Controlador de Velocidade para Motor CC de 12V
+# Projeto DESENVOLVIMENTO DE PROTÓTIPO DE SISTEMA DE INSPEÇÃO ÓPTICA DE PLACAS DE CIRCUITO IMPRESSO PARA LINHAS DE PRODUÇÃO COM INSERÇÃO MANUAL DE COMPONENTES
 ## Requisitos do Projeto:
 - Motor CC de 12V
 - Sistema que detecte a velocidade em que o motor está girando, projeto precisa ter 2 velocidades distintas no programa, critério
