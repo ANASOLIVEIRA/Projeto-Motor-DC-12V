@@ -1,12 +1,11 @@
 # TCC2
 
 # Projeto DESENVOLVIMENTO DE PROTÓTIPO DE SISTEMA DE INSPEÇÃO ÓPTICA DE PLACAS DE CIRCUITO IMPRESSO PARA LINHAS DE PRODUÇÃO COM INSERÇÃO MANUAL DE COMPONENTES
-## Requisitos do Projeto:
-- Motor CC de 12V
-- Sistema que detecte a velocidade em que o motor está girando, projeto precisa ter 2 velocidades distintas no programa, critério
-- Deve-se utilizar um monstrador LCD para indicar a velocidade em RPM e o sentido de rotação
-- Deve-se utilizar um botão que acionado, fará o motor parar e girar no sentido contrário, e tenha um alarme sonoro que indique essa mudança
-- Deve-se ter um sistema de proteção para que não tenha acesso ao motor enquanto ele estiver funcionando
+## RESUMO:
+**
+
+O presente trabalho teve como objetivo o desenvolvimento de um protótipo de sistema de inspeção óptica de placas de circuito impresso para linhas de produção com inserção manual de componentes. Inicialmente será apresentada a fundamentação teórica para o desenvolvimento deste trabalho: estudo sobre o processo de fabricação de placas de circuito impresso, métodos de inspeção para placas de circuito impresso, processamento digital de imagem, linguagem de programação Python e bibliotecas, e, por fim, o estudo a respeito da Raspberry Pi. Em seguida é descrito os estágios de desenvolvimento do projeto. No primeiro estágio é desenvolvido o sistema de iluminação e preparação do enclausuramento como ambiente para a realização da captura de imagens das placas de circuito impresso. Após esse estágio é feito ajuste de câmera e iluminação, assim como o algoritmo utilizando processamento digital de imagem. No último estágio é feito o cadastro das placas de circuito impresso definindo as regiões de interesse na mesma. Por fim, por meio da interface homem-máquina é possível analisar a presença dos componentes inseridos manualmente.
+**
 
 ## Componentes utilizados
 1. Placa Arduíno Mega
